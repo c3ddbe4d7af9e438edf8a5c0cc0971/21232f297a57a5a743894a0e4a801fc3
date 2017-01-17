@@ -1,0 +1,119 @@
+<div class="wrapper">
+
+    <div class="wrapper-title">
+        <?php _lang("contact::Messages")?>
+    </div>
+
+
+    <!------Mailbox Starts------>
+    <div style="">
+        <!-- Main content -->
+        <section class="content">
+            <div class="row">
+
+
+                <!-- /.col -->
+                <div class="message_list">
+                    <div class="box box-primary">
+                        <div class="box-header with-border">
+                            <h3 class="box-title"><?php echo lang('contact::inbox')?></h3>
+
+
+                            <!-- /.box-tools -->
+                        </div>
+                        <!-- /.box-header -->
+                        <div class="box-body no-padding">
+                            <div class="mailbox-controls">
+                                <!-- Check all button -->
+                                <!--
+                                <button type="button" class="btn btn-default btn-sm checkbox-toggle"><i class="ion fa-square-o"></i>
+                                </button>
+                                -->
+                                <!--
+                                <div class="btn-group">
+                                    <button type="button" class="btn btn-default btn-sm" title="<?php echo lang('contact::delete-all')?>"><i class="ion fa-trash-o"></i></button>
+
+                                    <button type="button" class="btn btn-default btn-sm" title="Reply"><i class="ion fa-reply"></i></button>
+                                    <button type="button" class="btn btn-default btn-sm" title="Forward"><i class="ion fa-share"></i></button>
+
+                                </div>
+
+                                <button type="button" class="btn btn-default btn-sm" title="<?php echo lang('contact::refresh')?>"><i class="ion fa-refresh"></i></button>
+                                -->
+                                <div class="pull-right">
+                                    <div style="margin-top:-23%"> <?php echo $contacts->links() ?></div>
+
+                                    <!-- /.btn-group -->
+                                </div>
+                                <!-- /.pull-right -->
+                            </div>
+                            <div class="table-responsive mailbox-messages">
+                                <table class="table table-hover table-striped">
+                                    <tbody>
+                                    <?php foreach($contacts->results() as $contact): ?>
+                                    <tr>
+                                        <!--<td><input type="checkbox"></td>-->
+                                        <td>
+                                            <form method="post" action="delete">
+                                                <input type="hidden" name="contact_id" value="<?php echo $contact['contact_id'] ?>">
+                                                <button type="submit" name="deleteMessage" style="background:none; border:0;" title="<?php echo lang('contact::delete-this')?>" onclick="javascript:return confirm('Are you sure you want to delete this message?')"><i class="ion ion-ios-trash-outline"></i></button>
+                                            </form>
+                                        </td>
+                                        <td class="mailbox-name"><a href="<?php echo url_to_pager('admin-contact-view') ?>?contact_id=<?php echo $contact['contact_id'] ?>"><?php echo $contact['name'] ?></a></td>
+                                        <td class="mailbox-subject">
+                                            <b><td><div style="height:20px; overflow:hidden"><a href="<?php echo url_to_pager('admin-contact-view') ?>?contact_id=<?php echo $contact['contact_id'] ?>"><?php echo $contact['subject'] ?></a></b>
+                                            - <?php echo $contact['message'] ?>....</div>
+                            </td>
+                            <!--<td class="mailbox-attachment"></td>-->
+                            <td class="mailbox-date align-right"><?php echo $contact['sent_date'] ?></td>
+                            <!-- <td class="mailbox-date">5 mins ago</td>-->
+                            </tr>
+                            <?php endforeach ?>
+
+                            </tbody>
+                            </table>
+                            <!-- /.table -->
+                            <?php //echo $contacts->links() ?>
+
+                        </div>
+                        <!-- /.mail-box-messages -->
+                    </div>
+                    <!-- /.box-body -->
+                    <div class="box-footer no-padding">
+                        <div class="mailbox-controls">
+                            <!-- Check all button -->
+                            <!--
+                            <button type="button" class="btn btn-default btn-sm checkbox-toggle"><i class="ion fa-square-o"></i>
+                            </button>
+                            -->
+                            <!--
+                            <div class="btn-group">
+                                <button type="button" class="btn btn-default btn-sm" title="Delete All"><i class="ion fa-trash-o"></i></button>
+
+                                <button type="button" class="btn btn-default btn-sm" title="Reply"><i class="ion fa-reply"></i></button>
+                                <button type="button" class="btn btn-default btn-sm" title="Forward"><i class="ion fa-share"></i></button>
+
+                            </div>
+                             -->
+                            <!-- /.btn-group -->
+                            <button type="button" class="btn btn-default btn-sm" title="<?php echo lang('contact::refresh')?>" onclick="javascript:history.go(0)"><i class="ion ion-refresh"></i></button>
+                            <div class="pull-right">
+                                <div style="margin-top:-20%"> <?php echo $contacts->links() ?></div>
+
+                                <!-- /.btn-group -->
+                            </div>
+                            <!-- /.pull-right -->
+                        </div>
+                    </div>
+                </div>
+                <!-- /. box -->
+            </div>
+            <!-- /.col -->
+    </div>
+    <!-- /.row -->
+    </section>
+    <!-- /.content -->
+</div>
+<!------Mailbox Ends------>
+
+</div>

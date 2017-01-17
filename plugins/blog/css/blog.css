@@ -1,0 +1,11 @@
+.blog-large-image img{
+    width:100%;
+
+}
+.blog-large-image {
+    margin-bottom:10px
+}
+
+.blog .post img {
+    max-width: 100%;
+}

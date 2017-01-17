@@ -1,0 +1,166 @@
+--------------------------------------------------------------------------------------------------------------
+===========================================VERSION 6.2.1 CHANGELOG==============================================
+--------------------------------------------------------------------------------------------------------------
+
+- Added Music directory
+- Improved photo plugin with photo directory
+- Added Restore & Backup plugin
+- Improved lastvisitor plugin with notifications
+- Added Number of Photos upload limit
+- OPTIMIZED Event Avatar Style
+- OPTIMIZED Link Sharer
+- ADDED country field required during Signup
+- ADDED Announcement Page Now displays all announcements
+- ADDED Privacy to Photos
+- Improved Marketplace plugin
+- Improved page plugin
+- Improved blogs notifications
+- Improved video notifications
+- Fix minor and major bugs reported
+- Improved security
+
+
+
+-----------READ ME BEFORE UPDATING--------------
+
+Now below will contain the list of files and folders you will need to update or add to your site
+
+
+--------------------------------------------------------------------------------------------------------------
+
+
+
+----------------------------UPDATE THE FOLLOWING FOLDERS AND FILES -----------------------------------------------------
+
+- plugins/page/loader.php
+- plugins/page/widgets/profile-photo/view.phtml
+
+- plugins/ads/html/create.phtml
+- plugins/ads/html/edit.phtml
+- plugins/ads/functions/ads.php
+- plugins/ads/html/paypal/cancel.phtml
+- plugins/ads/html/paypal/success.phtml
+
+- plugins/letteravatar/loader.php
+
+- plugins/announcement/loader.php
+- plugins/announcement/functions/announcement.php
+- plugins/announcement/html/list.phtml
+- plugins/announcement/html/render.phtml
+- plugins/announcement/pages/announcement.php
+
+
+- plugins/feed/html/feed.phtml
+- plugins/feed/pages/feed.php
+- plugins/feed/js/feed.js
+- plugins/feed/functions/feed.php
+- plugins/feed/html/poll-result.phtml
++ plugins/feed/html/poll-voters.phtml
+- plugins/feed/html/feed-content.phtml
+- plugins/feed/html/link.phtml
+
+- plugins/forum/loader.php
+
+- plugins/group/functions/group.php
+- plugins/group/loader.php
+
+
+- plugins/social/settings.php
+
+- plugins/photo/functions/photo.php
+- plugins/photo/js/photo.js
+
+- plugins/video/html/page.phtml
+- plugins/video/html/notifications/comment.phtml
+- plugins/video/html/notifications/like.phtml
+- plugins/video/html/notifications/like-comment.phtml
+- plugins/video/html/notifications/react.phtml
+- plugins/video/html/notifications/reply.phtml
+- plugins/video/css/video.css
+
+- plugins/blog/html/notifications/comment.phtml
+- plugins/blog/html/notifications/like.phtml
+- plugins/blog/html/notifications/like-comment.phtml
+
+- plugins/marketplace/functions/marketplace.php
+- plugins/marketplace/widgets/featured/view.phtml
+
+- plugins/sharer/functions/sharer.php
+- plugins/sharer/html/share_site.phtml
+- plugins/sharer/css/sharer.css
+- plugins/sharer/html/share_link.phtml;
+
+- plugins/games/loader.php
+
+- plugins/event/html/profile/layout.phtml
+
+- plugins/people/html/people.phtml
+
+- plugins/lastvisitor/loader.php
+- plugins/lastvisitor/loader.php
+
+
+-plugins/photo/html/photo.phtml
+-plugins/photo/html/myphotos.phtml
+-plugins/photo/html/albums.phtml
+-plugins/photo/html/myalbums.phtml
+-plugins/photo/html/album_photos.phtml
+-plugins/photo/html/myalbum_photos.phtml
+-plugins/photo/html/create_album.phtml
+-plugins/photo/html/create_photo.phtml
+
+-plugins/photo/css/photo.css
+-plugins/photo/database/install.php
+-plugins/photo/database/upgrade.php
+-plugins/photo/functions/photo.php
+-plugins/photo/images/default.png
+-plugins/photo/languages/english.php
+-plugins/photo/widgets/featured/info.php
+-plugins/photo/widgets/featured/view.phtml
+-plugins/photo/widgets/latest/info.php
+-plugins/photo/widgets/latest/view.phtml
+-plugins/photo/widgets/menu/info.php
+-plugins/photo/widgets/menu/view.phtml
+-plugins/photo/loader.php
+
+
+- includes/functions.php
+- includes/functions/country.php
+- includes/pages/signup.php
+- includes/core.php
+- includes/settings/media.php
+
+- languages/english.php
+
+- widgets/splash/view.phtml
+
+
+
+- themes/frontend/default/js/script.js
+- themes/frontend/default/css/style.css
+- themes/frontend/default/html/layouts/footer.phtml
+- themes/frontend/default/html/layouts/header.phtml
+- themes/frontend/default/html/account/profile-card.phtml
+
+- themes/backend/default/html/custom-fields/edit.phtml
+
+
+--------------------------------------------------------------------------------------------------------------
+
+
+------ADD THE FOLLOWING FOLDERS AND FILES--------------------------------------------------
+- plugins/music/
+
+-plugins/restore/
+
+
+----------------------------------FINAL STEP-----------------------------------------------------
+
+- Login back to your admincp and go to admincp -> tools -> update system
+
+- Also activate the new plugins music and restore
+
+- Test  your site with the latest update and let us know your thoughts through our tickets system
+
+
+Thanks for using crea8social

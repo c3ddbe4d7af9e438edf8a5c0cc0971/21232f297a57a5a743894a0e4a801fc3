@@ -1,0 +1,13 @@
+<?php
+if (isset($_POST['deleteMessage'])) {
+    $contact_id = $_POST['contact_id'];
+    db()->query("DELETE FROM contact WHERE contact_id='{$contact_id}'");
+    header("location: list");
+}
+
+if (isset($_POST['deleteAll'])) {
+    $contact_id = $_POST['contact_id'];
+    db()->query("DELETE FROM contact");
+    header("location: list");
+}
+?>

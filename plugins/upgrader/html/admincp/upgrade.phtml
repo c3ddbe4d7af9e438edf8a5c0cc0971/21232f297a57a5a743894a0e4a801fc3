@@ -1,0 +1,53 @@
+<div class="wrapper">
+    <div class="wrapper-title"><?php _lang('upgrader::upgrade-system')?></div>
+    <div class="wrapper-content">
+        <?php if(input('file')):?>
+            <form onsubmit="return upgrade_now(this)" class="wrapper-form" action="" method="post">
+                <div class="alert alert-success"><?php _lang('upgrader::upload-successful')?></div>
+                <div class="alert alert-warning"><?php _lang('upgrader::upgrade-warning-message')?></div>
+                <?php $upgrade = include(path('storage/uploads/'.input('path')).'upgrade.php')?>
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th></th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><?php _lang('current-version')?></td>
+                            <td><?php echo $app->version?></td>
+                        </tr>
+                        <tr>
+                            <td><?php _lang('upgrader::upgrade-version')?></td>
+                            <td><?php echo $upgrade['version']?></td>
+                        </tr>
+
+                    </tbody>
+                </table>
+
+                <input type="hidden" name="file" value="<?php echo input('file')?>"/>
+                <input type="hidden" name="path" value="<?php echo input('path')?>"/>
+
+
+                <button class="btn btn-info" style="margin-top: 30px"><?php _lang('upgrader::upgrade-now')?></button>
+            </form>
+        <?php else:?>
+            <form onsubmit="return upload_upgrade_file(this)" action="" enctype="multipart/form-data" class="wrapper-form" method="post">
+                <label><?php _lang('upgrader::select-downloaded-file')?>  (Zip File)</label>
+                <div class="alert alert-info"><?php _lang('upgrader::select-downloaded-file-info')?></div>
+                <input type="file" name="file" class="form-control"/>
+
+                <div class="row" style="margin: 10px 0">
+                    <div class="col-sm-10">
+                        <progress class="progress upgrade-upload-indicator" value="0" max="100">0%</progress>
+                    </div>
+                    <div class="col-sm-2 upgrade-upload-indicator">
+                        0%
+                    </div>
+                </div>
+                <button class="btn btn-info" style="margin-top: 30px"><?php _lang('upgrader::upload')?></button>
+            </form>
+        <?php endif?>
+    </div>
+</div>

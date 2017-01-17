@@ -1,0 +1,30 @@
+.align-right{
+    text-align:right;
+}
+.no_padding_right{
+    padding-right:0!important;
+}
+.message_list{
+    margin:auto;
+    width:90%
+}
+.message_reply, .message_view{
+    margin:auto;
+    width:70%
+}
+.mailbox-name{
+    width:12%;
+}
+.mailbox-date{
+    width:12%;
+    padding-right:1%
+}
+.add-padding{
+    padding:1.5%;
+}
+.ion{
+    font-size:18px;
+}
+.box{
+    margin-top:2%; padding: 1% 1% 0 1%;
+}

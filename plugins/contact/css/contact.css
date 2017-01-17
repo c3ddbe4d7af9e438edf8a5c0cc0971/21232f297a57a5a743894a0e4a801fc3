@@ -1,0 +1,24 @@
+.contact{
+    background:#E7E4EA;
+    padding:2% 7%;
+    width:60%;
+    margin:auto;
+}
+.contact label{
+    text-align:left;
+    margin-right:3%;
+    color: #555555;
+    width:70px;
+    text-shadow: 0 1px 0 #ffffff;
+}
+.contact input[type="text"], .contact input[type="email"], .contact textarea{
+     width:70%;
+ }
+.contact .submit{
+    margin:3% 0%;
+}
+.action-button{
+    float:left;
+
+}
+

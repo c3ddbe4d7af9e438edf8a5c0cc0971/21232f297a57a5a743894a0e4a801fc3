@@ -1,0 +1,107 @@
+<div class="wrapper">
+    <div class="wrapper-title" style="position: relative">
+        <?php _lang('admin-dashboard')?>
+        <span><?php _lang('admin-dashboard-desc')?></span>
+        <span style="position: absolute;top: 20px;right: 20px;font-weight: bold;font-size: 30px;color: green"><?php _lang('current-version')?> - <?php echo $app->version?></span>
+    </div>
+    <div class="wrapper-content">
+        <?php $version = get_our_latest_version();?>
+        <?php if($version > app()->version and $version != 'trial'):?>
+               <div class="alert alert-danger">A new version is now available <strong>(Version : <?php echo $version?>)</strong>. Kindly login to our dashboard to download the latest version</div>
+        <?php endif?>
+
+        <div class="row">
+            <div class="col-sm-8">
+                <div class="box">
+                    <?php
+                    $year = input('year', date('Y'));
+
+                    ?>
+                    <div class="title"><?php echo $year?> - <?php _lang('statistics')?>
+                        <span class="pull-right action">
+                            <select id="admincp-statistics-input" onchange="reload_statistics(this)" data-link="<?php echo url_to_pager('admin-statistic')?>" data-year="<?php echo $year?>" class="c-select">
+                                <?php for($i=2013;$i <= date('Y');$i++):?>
+                                    <option <?php echo ($year == $i) ? 'selected' : null?> value="<?php echo $i?>"><?php echo $i?></option>
+                                <?php endfor?>
+                            </select>
+                        </span>
+                    </div>
+                    <div class="box-content">
+                        <div id="charts-stats">
+                            <img style="width: 30px;margin: 10% auto;display: block" src="<?php echo img('images/loading.gif')?>"/>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="statistics-container clearfix">
+                    <?php foreach($statistics as $stat):?>
+                        <?php
+                        $colors = array('cabaret','seance','wisteria','royal-blue','spray','madison','chambray','malibu','steel-blue','jelly-bean','downy','.saffron','crusta','lynch','edward');
+                        $key = array_rand($colors, 1);
+                        $color = $colors[$key];
+                        ?>
+                        <a href="<?php echo $stat['link']?>"><div class="stats <?php echo $color?>">
+                                <div class="content clearfix">
+                                    <div class="left pull-left">
+                                        <span class="count"><?php echo $stat['count']?></span>
+
+                                    </div>
+                                    <div class="right pull-right">
+                                        <div><i class="<?php echo $stat['icon']?>"></i></div>
+                                    </div>
+                                </div>
+                                <div class="foot <?php echo $color?>" style="opacity: 0.7"><?php echo $stat['title']?></div>
+                            </div></a>
+                    <?php endforeach?>
+
+
+                </div>
+
+
+                <?php echo theme_extend('admincp.dashboard.left')?>
+            </div>
+            <div class="col-sm-4">
+                <div class="box">
+                    <div class="title"><?php _lang('quick-links')?></div>
+                    <div class="">
+                        <ul class="nav">
+                            <?php foreach(get_menus('admincp-quick-link') as $menu):?>
+                                <li><a href="<?php echo $menu->link?>"><?php echo $menu->title?> <i class="pull-right ion-chevron-right"></i></a> </li>
+                            <?php endforeach?>
+                        </ul>
+                    </div>
+                </div>
+
+                <?php $blogs = @file_get_contents('http://crea8social.com/blogs/api');
+                    if ($blogs) {
+                        $blogs = json_decode($blogs, true);
+                    }
+                ?>
+
+                <?php if($blogs):?>
+                    <div class="box">
+                        <div class="title">Latest News</div>
+                        <div class="box-content" style="height: 300px;overflow: auto">
+                            <?php foreach($blogs as $blog):?>
+                                <div class="media" style="margin-bottom: 5px">
+                                    <div class="media-body">
+                                        <a href="http://crea8social.com/prowebsite/<?php echo 'blog/'.$blog['slug']?>" style="font-weight: lighter "><h5><?php echo $blog['title']?></h5></a>
+                                        <p>
+
+                                            <?php echo str_limit($blog['content'], 100)?>
+                                        </p>
+                                    </div>
+                                </div>
+                            <?php endforeach?>
+                        </div>
+                    </div>
+                <?php endif?>
+
+
+
+
+                <?php echo theme_extend('admincp.dashboard.left')?>
+            </div>
+        </div>
+    </div>
+</div>
